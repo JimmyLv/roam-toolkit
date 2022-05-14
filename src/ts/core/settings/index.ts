@@ -40,8 +40,9 @@ export interface Shortcut extends Setting {
 
 export const Settings = {
     get: async (featureId: string, settingId: string, defaultValue?: string) =>
-        (await getStateFromStorage())[featureId][settingId] || defaultValue,
-    isActive: async (featureId: string) => (await getStateFromStorage())[featureId]?.active,
+        getStateFromStorage()?.[featureId]?.[settingId] || defaultValue,
+    isActive: async (featureId: string, defaultValue: boolean = true) =>
+        getStateFromStorage()?.[featureId]?.active || defaultValue,
 }
 const initDefaultState = (feature: Feature): {active: boolean} => {
     return {
@@ -94,3 +95,4 @@ const notifySettingsUpdated = () => Browser.sendMessageToActiveTab('settings-upd
 
 const updateSetting = (value: string, featureId: string, settingId: string) =>
     Browser.sendMessageToActiveTab({value, featureId, settingId})
+
