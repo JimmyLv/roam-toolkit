@@ -30,6 +30,7 @@ export const Selectors = {
     checkbox: '.check-container',
     externalLink: 'a.rm-alias, a[target="_blank"]',
     linkInBlockRef: '.rm-block-ref a.rm-alias',
+    attributeRef: '.rm-attr-ref',
     embedPageTitle: '.rm-embed--page a span.rm-page__title',
     referenceItem: '.rm-reference-item',
     breadcrumbsContainer: '.zoom-mentions-view',

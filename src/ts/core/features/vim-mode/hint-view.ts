@@ -53,6 +53,7 @@ export const updateVimHints = (block: HTMLElement) => {
     const clickableSelectors = [
         Selectors.link,
         Selectors.externalLink,
+        Selectors.attributeRef,
         Selectors.linkInBlockRef,
         Selectors.embedPageTitle,
         Selectors.checkbox,
